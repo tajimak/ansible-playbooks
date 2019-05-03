@@ -1,0 +1,9 @@
+- name: Install Hyper-V Features
+  hosts: all
+  tasks:
+  - name: Install Features
+    win_feature:
+      name:
+        - Hyper-V
+        - RSAT-Hyper-V-Tools
+      state: present

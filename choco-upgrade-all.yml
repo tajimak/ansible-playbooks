@@ -1,0 +1,7 @@
+- name: choco upgrade all
+  hosts: all
+  tasks:
+  - name: Upgrade installed packages
+    win_chocolatey:
+      name: all
+      state: latest

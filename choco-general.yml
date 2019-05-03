@@ -1,0 +1,11 @@
+- name: choco install favorite apps
+  hosts: all
+  tasks:
+  - name: install packages
+    win_chocolatey:
+      name:
+        - googlechrome
+        - 7zip
+        - vscode
+        - chocolateygui
+      state: latest

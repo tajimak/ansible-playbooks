@@ -1,0 +1,8 @@
+- name: Stop Azure VM
+  hosts: all
+  tasks:
+  - name: Deallocate the virtual machine
+    azure_rm_virtualmachine:
+      resource_group: hyperv-k1t
+      name: hyperv-k1t
+      allocated: no

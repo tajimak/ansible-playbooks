@@ -1,0 +1,14 @@
+- name: git client
+  hosts: all
+  tasks:
+  - name: Install git with params
+    win_chocolatey:
+      name: git
+      package_params: "/GitAndUnixToolsOnPath"
+      state: latest
+  - name: Install applications for git
+    win_chocolatey:
+      name:
+        - gitextensions
+        - kdiff3
+      state: latest
