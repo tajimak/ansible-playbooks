@@ -4,16 +4,16 @@
   - name: install packages
     win_chocolatey:
       name:
-        - GoogleChrome
-        - 7zip
-        - vscode
-        - chocolateygui
+      - GoogleChrome
+      - 7zip
+      - vscode
+      - chocolateygui
       state: present
   - name: upgrade packages
     win_chocolatey:
       name:
-        - GoogleChrome
-        - 7zip
-        - vscode
-        - chocolateygui
+      - GoogleChrome
+      - 7zip
+      - vscode
+      - chocolateygui
       state: latest
