@@ -3,8 +3,11 @@
   tasks:
   - name: install packages
     win_chocolatey:
+      name: GoogleChrome
+      state: present
+  - name: install packages
+    win_chocolatey:
       name:
-      - GoogleChrome
       - 7zip
       - vscode
       - chocolateygui

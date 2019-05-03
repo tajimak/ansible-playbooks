@@ -9,6 +9,6 @@
   - name: Install applications for git
     win_chocolatey:
       name:
-        - gitextensions
-        - kdiff3
+      - gitextensions
+      - kdiff3
       state: latest
