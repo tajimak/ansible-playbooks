@@ -8,4 +8,12 @@
         - 7zip
         - vscode
         - chocolateygui
+      state: present
+  - name: upgrade packages
+    win_chocolatey:
+      name:
+        - googlechrome
+        - 7zip
+        - vscode
+        - chocolateygui
       state: latest
