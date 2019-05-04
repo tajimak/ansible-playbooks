@@ -9,4 +9,4 @@
       register: result_ping
     - name: debug
       debug:
-        msg: "hostname:{{ result_hostname.stdout_lines[0] }}, ping:{{ result_ping.ping }}"
+        var=[result_hostname.stdout_lines[0],result_ping.ping]
