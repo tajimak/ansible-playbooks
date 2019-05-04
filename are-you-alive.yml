@@ -3,5 +3,10 @@
   tasks:
     - name: hostname
       win_shell: hostname
+      register: result_hostname
     - name: ping
       win_ping:
+      register: result_ping
+    - name: debug
+      debug:
+        msg: "hostname:{{ result_hostname.stdout_lines[0] }}, ping:{{ result_ping.ping }}"
