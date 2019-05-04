@@ -1,0 +1,7 @@
+- name: Are you alive
+  hosts: all
+  tasks:
+    - name: hostname
+      win_shell: hostname
+    - name: ping
+      win_ping:
