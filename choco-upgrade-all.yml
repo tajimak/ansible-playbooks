@@ -5,3 +5,7 @@
     win_chocolatey:
       name: all
       state: latest
+    register: result
+
+  - name: report
+    debug: var=result
