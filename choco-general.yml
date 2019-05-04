@@ -1,18 +1,17 @@
 - name: choco install favorite apps
   hosts: all
   tasks:
-  - name: install packages
+  - name: install Chocolatey
     win_chocolatey:
-      name:
-      - 7zip
-      - vscode
-      - chocolateygui
+      name: chocolatey
       state: present
+
+  - name: disable enhanced exit codes
+    win_chocolatey_feature:
+      name: useEnhancedExitCodes
+      state: disabled
+
   - name: install packages
-    win_chocolatey:
-      name: GoogleChrome
-      state: present
-  - name: upgrade packages
     win_chocolatey:
       name:
       - GoogleChrome
