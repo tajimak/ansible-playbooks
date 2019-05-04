@@ -19,3 +19,7 @@
       - vscode
       - chocolateygui
       state: latest
+    register: result
+
+  - name: report
+    debug: var=result
