@@ -1,12 +1,14 @@
 - name: Are you alive
   hosts: all
   tasks:
-    - name: hostname
-      win_shell: hostname
-      register: result_hostname
-    - name: ping
-      win_ping:
+    - name: ping on linux
+      ping:
+      when: ansible_system == "Linux"
       register: result_ping
-    - name: debug
+    - name: ping on windows
+      win_ping:
+      when: ansible_os_family == "Windows"
+      register: result_ping
+    - name: report
       debug:
-        var=[result_hostname.stdout_lines[0],result_ping.ping]
+        var=[ansible_hostname,ansible_system,ansible_os_family,result_ping.ping]
