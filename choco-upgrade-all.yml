@@ -6,6 +6,9 @@
       name: all
       state: latest
     register: result
+    when:
+      - ansible_os_family == "Windows"
+      - ansible_env.ChocolateyInstall != ""
 
   - name: report
     debug: var=result
