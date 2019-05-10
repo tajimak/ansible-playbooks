@@ -1,11 +1,11 @@
 - name: windows update and choco upgrade
-  hosts: windows
+  hosts: all
   tasks:
   - name: Upgrade installed packages
     win_chocolatey:
       name: all
       state: latest
-    register: result_upgrade
+    register: result_choco
 
   - name: Update windows
     win_updates:
@@ -20,4 +20,4 @@
     debug: var=result_update
 
   - name: Report choco upgrade
-    debug: var=result_upgrade
+    debug: var=result_choco

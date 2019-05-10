@@ -5,10 +5,12 @@
       ping:
       when: ansible_system == "Linux"
       register: result_ping
+
     - name: ping on windows
       win_ping:
       when: ansible_os_family == "Windows"
       register: result_ping
+
     - name: report
       debug:
         var=[ansible_hostname,ansible_system,ansible_os_family,result_ping.ping]

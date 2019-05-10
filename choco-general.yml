@@ -1,5 +1,5 @@
 - name: choco install favorite apps
-  hosts: windows
+  hosts: all
   tasks:
   - name: install Chocolatey
     win_chocolatey:

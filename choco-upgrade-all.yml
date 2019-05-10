@@ -1,5 +1,5 @@
 - name: choco upgrade all
-  hosts: windows
+  hosts: all
   tasks:
   - name: Upgrade installed packages
     win_chocolatey:
