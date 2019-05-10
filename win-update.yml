@@ -6,6 +6,9 @@
       name: all
       state: latest
     register: result_choco
+    when:
+      - ansible_os_family == "Windows"
+      - ansible_env.ChocolateyInstall != ""
 
   - name: Update windows
     win_updates:
@@ -15,6 +18,7 @@
         - UpdateRollups
       reboot: yes
     register: result_update
+    when: ansible_os_family == "Windows"
 
   - name: Report windows update
     debug: var=result_update
