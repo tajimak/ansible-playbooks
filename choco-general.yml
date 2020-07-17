@@ -4,7 +4,7 @@
   - name: install Chocolatey
     win_chocolatey:
       name: chocolatey
-      state: present
+      state: latest
 
   - name: disable enhanced exit codes
     win_chocolatey_feature:
