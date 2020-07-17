@@ -16,7 +16,7 @@
         - SecurityUpdates
         - CriticalUpdates
         - UpdateRollups
-      reboot: yes
+      # reboot: yes
     register: result_update
     when: ansible_os_family == "Windows"
 
