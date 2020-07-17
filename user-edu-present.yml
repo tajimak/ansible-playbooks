@@ -8,6 +8,7 @@
       state: present
       groups:
         - Users
+        - Remote Desktop Users
     when:
       - ansible_os_family == "Windows"
     register: result
