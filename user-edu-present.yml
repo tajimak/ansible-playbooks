@@ -1,0 +1,15 @@
+- name: Add user edu as local user
+  hosts: all
+  tasks:
+  - name: user edu present
+    win_user:
+      name: edu
+      password: user123///
+      state: present
+      groups:
+        - Users
+    when:
+      - ansible_os_family == "Windows"
+    register: result
+  - name: report
+    debug: var=result
