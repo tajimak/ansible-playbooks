@@ -1,12 +1,19 @@
 - name: Remove user edu as local user
   hosts: all
   tasks:
-  - name: user edu absent
+  - name: Remove profile for user edu
+    win_user_profile:
+      username: edu
+      state: absent
+    register: profile-result
+  - name: Remove user edu
     win_user:
       name: edu
       state: absent
     when:
       - ansible_os_family == "Windows"
-    register: result
-  - name: report
-    debug: var=result
+    register: user-result
+  - name: Report profile
+    debug: var=profile-result
+  - name: Report user
+    debug: var=user-result
