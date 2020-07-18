@@ -4,12 +4,8 @@
   # https://docs.ansible.com/ansible/latest/modules/win_updates_module.html
   - name: Update windows
       win_updates:
-      # category_names:
-      #   - SecurityUpdates
-      #   - CriticalUpdates
-      #   - UpdateRollups
       state: installed
-      # reboot: yes
+      reboot: no
     register: result_update
     when: ansible_os_family == "Windows"
 
