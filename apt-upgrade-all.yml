@@ -6,7 +6,7 @@
     apt:
       update_cache: yes
       force_apt_get: yes
-    register: result_apt-get-update
+    register: result_update
     when: ansible_system == "Linux"
 
   - name: apt-get upgrade all
@@ -14,11 +14,11 @@
       upgrade: yes
       force_apt_get: yes
       allow_unauthenticated: yes
-    register: result_apt-get-upgrade
+    register: result_upgrade
     when: ansible_system == "Linux"
 
   - name: Report apt-get update
-    debug: var=result_apt-get-update
+    debug: var=result_update
 
   - name: Report apt-get upgrade
-    debug: var=result_apt-get-upgrade
+    debug: var=result_upgrade
