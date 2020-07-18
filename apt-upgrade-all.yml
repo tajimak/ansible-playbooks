@@ -1,0 +1,14 @@
+- name: Linux upgrade all by apt
+  hosts: all
+  tasks:
+  # https://docs.ansible.com/ansible/latest/modules/apt_module.html
+  - name: Update Linux
+    apt:
+      update_cache: yes
+      name: "*"
+      state: latest
+    register: result_update
+    when: ansible_system == "Linux"
+
+  - name: Report
+    debug: var=result_update
