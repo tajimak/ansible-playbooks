@@ -2,13 +2,22 @@
   hosts: all
   tasks:
   # https://docs.ansible.com/ansible/latest/modules/apt_module.html
-  - name: Update Linux
+  - name: apt-get update
     apt:
       update_cache: yes
-      name: "*"
-      state: latest
-    register: result_update
+      force_apt_get: yes
+    register: result_apt-get-update
     when: ansible_system == "Linux"
 
-  - name: Report
-    debug: var=result_update
+  - name: apt-get upgrade all
+    apt:
+      upgrade: dist
+      force_apt_get: yes
+    register: result_apt-get-upgrade
+    when: ansible_system == "Linux"
+
+  - name: Report apt-get update
+    debug: var=result_apt-get-update
+
+  - name: Report apt-get upgrade
+    debug: var=result_apt-get-upgrade
