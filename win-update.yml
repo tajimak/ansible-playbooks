@@ -1,21 +1,13 @@
-- name: windows update and choco upgrade
+- name: Windows update
   hosts: all
   tasks:
-  - name: Upgrade installed packages
-    win_chocolatey:
-      name: all
-      state: latest
-    register: result_choco
-    when:
-      - ansible_os_family == "Windows"
-      - ansible_env.ChocolateyInstall != ""
-
+  # https://docs.ansible.com/ansible/latest/modules/win_updates_module.html
   - name: Update windows
-    win_updates:
-      category_names:
-        - SecurityUpdates
-        - CriticalUpdates
-        - UpdateRollups
+      win_updates:
+      # category_names:
+      #   - SecurityUpdates
+      #   - CriticalUpdates
+      #   - UpdateRollups
       state: installed
       # reboot: yes
     register: result_update
@@ -23,6 +15,3 @@
 
   - name: Report windows update
     debug: var=result_update
-
-  - name: Report choco upgrade
-    debug: var=result_choco
