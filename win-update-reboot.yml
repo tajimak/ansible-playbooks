@@ -3,7 +3,7 @@
   tasks:
   # https://docs.ansible.com/ansible/latest/modules/win_updates_module.html
   - name: Update windows
-      win_updates:
+    win_updates:
       state: installed
       reboot: yes
     register: result_update
