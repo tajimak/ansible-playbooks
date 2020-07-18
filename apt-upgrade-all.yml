@@ -11,7 +11,7 @@
 
   - name: apt-get upgrade all
     apt:
-      upgrade: dist
+      upgrade: yes
       force_apt_get: yes
     register: result_apt-get-upgrade
     when: ansible_system == "Linux"
