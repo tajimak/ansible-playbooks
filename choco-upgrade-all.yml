@@ -8,7 +8,7 @@
     register: result
     when:
       - ansible_os_family == "Windows"
-      - ansible_env.ChocolateyInstall != ""
+      - ansible_env.ChocolateyInstall
 
   - name: report
     debug: var=result
