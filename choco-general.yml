@@ -5,12 +5,16 @@
     win_chocolatey:
       name: chocolatey
       state: latest
-
+    when:
+      - ansible_os_family == "Windows"
+  
   - name: disable enhanced exit codes
     win_chocolatey_feature:
       name: useEnhancedExitCodes
       state: disabled
-
+    when:
+      - ansible_os_family == "Windows"
+  
   - name: install packages
     win_chocolatey:
       name:
@@ -19,6 +23,8 @@
       - vscode
       - chocolateygui
       state: latest
+    when:
+      - ansible_os_family == "Windows"
     register: result
 
   - name: report

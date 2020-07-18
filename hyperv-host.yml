@@ -7,4 +7,5 @@
         - Hyper-V
         - RSAT-Hyper-V-Tools
       state: present
-    when: ansible_os_family == "Windows"
+    when:
+      - ansible_os_family == "Windows"
