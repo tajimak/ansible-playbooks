@@ -15,3 +15,8 @@
 
   - name: Report windows update
     debug: var=result_update
+
+  - name: Report reboot required
+    debug: var=[ansible_hostname,result_update.reboot_required]
+    when: result_update.reboot_required
+  
