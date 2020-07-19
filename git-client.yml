@@ -6,9 +6,15 @@
       name: git
       package_params: "/GitAndUnixToolsOnPath"
       state: latest
+    when:
+      - ansible_os_family == "Windows"
+
   - name: Install applications for git
     win_chocolatey:
       name:
       - gitextensions
       - kdiff3
       state: latest
+    when:
+      - ansible_os_family == "Windows"
+  
