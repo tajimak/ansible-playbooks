@@ -6,13 +6,13 @@
     win_updates:
       state: installed
       reboot: no
-    register: result_update
+    register: update_result
     when: ansible_os_family == "Windows"
 
   - name: Report windows update
-    debug: var=result_update
+    debug: var=update_result
 
   - name: Report reboot required
-    debug: var=[ansible_hostname,result_update.reboot_required]
-    when: result_update.reboot_required
+    debug: var=[update_result.reboot_required]
+    when: update_result.reboot_required
   
