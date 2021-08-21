@@ -13,12 +13,4 @@
 
     - name: report
       debug:
-        var=[
-          ansible_hostname,
-          ansible_system,
-          ansible_os_family,
-          ansible_os_name,
-          ansible_os_product_type,
-          ansible_playbook_python,
-          result_ping.ping
-        ]
+        var=[ansible_hostname,ansible_system,ansible_os_family,ansible_os_name,ansible_os_product_type,ansible_playbook_python,result_ping.ping]
