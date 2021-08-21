@@ -2,7 +2,7 @@
   hosts: all
   tasks:
     - name: system info
-      ansible.builtin.debug:
+      debug:
         var: ansible_system,ansible_os_family,ansible_os_name
 
     - name: ping on linux
@@ -16,11 +16,11 @@
       register: result_win
 
     - name: report on linux
-      ansible.builtin.debug:
+      debug:
         var: result_linux.ping
       when: result_linux.ping is defined
     
     - name: report on windows
-      ansible.builtin.debug:
+      debug:
         var: result_win.ping
       when: result_win.ping is defined
