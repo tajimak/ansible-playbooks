@@ -5,11 +5,11 @@
     # https://docs.ansible.com/ansible/2.9_ja/user_guide/become.html
     - name: apt-get update && upgrade
       apt:
-        update_cache: yes
+        # update_cache: yes
         upgrade: dist
         autoremove: yes
         force_apt_get: yes
-      when: ansible_facts["system"] == "Linux"
+      when: ansible_facts["distribution"] in "Debian Ubuntu"
       become: yes
       register: result
 
