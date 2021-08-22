@@ -6,9 +6,9 @@
     - name: apt-get update && upgrade
       apt:
         update_cache: yes
-        upgrade: full
+        upgrade: dist
         autoremove: yes
-        # force_apt_get: yes
+        force_apt_get: yes
       when: ansible_facts["system"] == "Linux"
       become: yes
       register: result
