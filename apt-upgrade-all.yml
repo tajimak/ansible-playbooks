@@ -9,7 +9,7 @@
         upgrade: dist
         autoremove: yes
         force_apt_get: yes
-      when: ansible_facts["distribution"] in ["Debian", "Ubuntu"]
+      when: ansible_facts['os_family'] == "Debian"
       become: yes
       register: result
 
