@@ -1,6 +1,10 @@
 - name: Linux upgrade all by apt-get
   hosts: all
   tasks:
+    - name: Report system
+      debug:
+        var: ansible_facts['os_family'], ansible_facts['distribution']
+
     # https://docs.ansible.com/ansible/latest/modules/apt_module.html
     # https://docs.ansible.com/ansible/2.9_ja/user_guide/become.html
     - name: apt-get update && upgrade
