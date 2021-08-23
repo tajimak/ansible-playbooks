@@ -1,0 +1,20 @@
+- name: choco upgrade all
+  hosts: all
+  tasks:
+  - name: disable enhanced exit codes
+    win_chocolatey_feature:
+      name: useEnhancedExitCodes
+      state: disabled
+    when:
+      - ansible_os_family == "Windows"
+  
+  - name: List installed packages
+    win_chocolatey:
+      name: all
+      state: present
+    register: result
+    when:
+      - ansible_os_family == "Windows"
+
+  - name: report
+    debug: var=result
