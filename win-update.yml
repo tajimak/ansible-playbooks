@@ -13,6 +13,11 @@
     debug: var=update_result
 
   - name: Report reboot required
-    debug: var=[update_result.reboot_required]
+    debug:
+      var: update_result.reboot_required
     when: update_result.reboot_required
   
+  - name: Report reboot_pending
+    debug:
+      var: ansible_facts["reboot_pending"]
+    when: ansible_facts["reboot_pending"]
