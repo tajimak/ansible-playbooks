@@ -3,6 +3,7 @@
   tasks:
   - name: Reboot if reboot_pending
     win_reboot:
+    reboot_timeout: 1800
     when: ansible_facts["reboot_pending"]
 
   # https://docs.ansible.com/ansible/latest/modules/win_updates_module.html
