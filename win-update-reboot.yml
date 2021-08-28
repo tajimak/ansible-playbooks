@@ -1,13 +1,17 @@
 - name: Windows update and reboot if it is required
   hosts: all
   tasks:
+  - name: Reboot if reboot_pending
+    win_reboot:
+    when: ansible_facts["reboot_pending"]
+
   # https://docs.ansible.com/ansible/latest/modules/win_updates_module.html
   - name: Update windows
     win_updates:
       state: installed
       reboot: yes
     register: result_update
-    when: ansible_os_family == "Windows"
 
   - name: Report windows update
-    debug: var=result_update
+    debug:
+      var: result_update
