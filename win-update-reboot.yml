@@ -10,6 +10,7 @@
   - name: Update windows
     win_updates:
       state: installed
+      category_names: '*'
       reboot: yes
     register: result_update
 
