@@ -10,7 +10,7 @@
   - name: Update windows
     win_updates:
       state: installed
-      category_names: ["Updates"]
+      # category_names: ["Updates"]
       reboot: no
     register: update_result
     when: ansible_os_family == "Windows"
