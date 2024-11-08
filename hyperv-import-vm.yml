@@ -1,0 +1,20 @@
+- name: Import an exported VM on Hyper-V
+  hosts: windows
+  tasks:
+    - name: Import the exported VM
+      win_command:
+        command: |
+          Import-VM -Path "C:\Path\To\ExportedVM" -Copy -GenerateNewId -Name "NewVMName"
+      register: import_vm_result
+
+    - name: Check if the VM was imported successfully
+      win_command:
+        command: |
+          Get-VM -Name "NewVMName"
+      register: check_vm_result
+      failed_when: "'NewVMName' not in check_vm_result.stdout"
+
+    - name: Start the new VM
+      win_hyperv_guest:
+        name: "NewVMName"
+        state: started
